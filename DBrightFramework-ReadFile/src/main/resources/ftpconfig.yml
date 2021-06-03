@@ -1,0 +1,20 @@
+
+ftp:
+  ftplp: 10.2.23.89
+  ftpPort: 21
+  ftpUser: uftp
+  ftpPwd: 12345678
+  ftpRemotePath: /home
+
+#ftplp: 94.191.122.68
+#ftpPort: 21
+#ftpUser: root
+#ftpPwd: dyj1314520.
+#ftpRemotePath: /home/dyj
+
+#ftp:
+#  ftplp: 221.12.156.108
+#  ftpPort: 21
+#  ftpUser: aoshan
+#  ftpPwd: 97209721
+#  ftpRemotePath: /home

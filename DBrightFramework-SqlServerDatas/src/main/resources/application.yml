@@ -1,0 +1,18 @@
+server:
+  port: 9008
+  servlet:
+    context-path: /sqlserver
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    max-connections: 20000
+    min-spare-threads: 100
+spring:
+  datasource:
+    url: jdbc:sqlserver://10.4.37.101:1433;DatabaseName=DeltaDb
+    username: sa
+    password: B@ndwe@ver
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

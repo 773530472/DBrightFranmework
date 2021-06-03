@@ -1,0 +1,17 @@
+server:
+  port: 10003
+
+spring:
+  datasource:
+    name: testDataPrediction
+    url: jdbc:mysql://94.191.122.68:3306/testDataPrediction
+    username: root
+    password: root
+#    tomcat:
+#      max-age: 40000 #连接池中连接的最长寿命
+    hikari:
+      connection-timeout: 5000000
+
+mybatis:
+  mapper-locations: classpath:com/**/*Mapper.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.github.dright.entity  # 注意：对应实体类的路径

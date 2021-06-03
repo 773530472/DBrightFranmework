@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- 模型版本 maven2.0必须是这样写，现在是maven2唯一支持的版本 -->
+    <modelVersion>4.0.0</modelVersion>
+    <!-- 公司或者组织的唯一标志，并且配置时生成的路径也是由此生成，
+    如com.winner.trade，maven会将该项目打成的jar包放本地路径：/com/winner/trade -->
+    <groupId>com.dbright.totalproject</groupId>
+    <!-- 本项目的唯一ID，一个groupId下面可能多个项目，就是靠artifactId来区分的 -->
+    <artifactId>DBrightFramework-TotalProject</artifactId>
+    <!-- 本项目目前所处的版本号 -->
+    <version>1.0-SNAPSHOT</version>
+
+    <description>用来统一管理jar包的版本</description>
+    <!-- 管理子项目的pom文件的引用 -->
+    <modules>
+        <module>DBrightFramework-ReadFile</module>
+        <module>DBrightFramework-WebService</module>
+        <module>DBrightFramework-WebSocket</module>
+        <module>DBrightFramework-Practice</module>
+        <module>DBrightFramework-Core</module>
+        <module>DBrightFramework-Cache</module>
+        <module>DBrightFramework-Security</module>
+        <module>DBrightFramework-Redis</module>
+        <module>DBrightFramework-SqlServerDatas</module>
+    </modules>
+
+    <properties>
+        <!-- 最好和parent中的version保持一致 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-boot-starter-web.version>2.1.8.RELEASE</spring-boot-starter-web.version>
+        <mybatis-spring-boot-starter.version>1.3.1</mybatis-spring-boot-starter.version>
+        <mysql-connector-java.version>5.1.48</mysql-connector-java.version>
+        <spring-boot-starter-test.version>2.1.8.RELEASE</spring-boot-starter-test.version>
+        <spring-boot-maven-plugin.version>2.1.5.RELEASE</spring-boot-maven-plugin.version>
+        <fastjson.version>1.2.3</fastjson.version>
+    </properties>
+
+    <packaging>pom</packaging>
+
+    <!-- 定义本项目的依赖关系 -->
+    <dependencies>
+
+        <!-- 每个dependency都对应这一个jar包 -->
+        <!-- web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot-starter-web.version}</version>
+        </dependency>
+        <!-- mybatis -->
+    <!--    <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>${mybatis-spring-boot-starter.version}</version>
+        </dependency>-->
+        <!-- mysql -->
+<!--        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+            <version>${mysql-connector-java.version}</version>
+        </dependency>-->
+        <!-- test 单元测试 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <version>${spring-boot-starter-test.version}</version>
+        </dependency>
+
+        <!--fastjson-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+
+    </dependencies>
+
+
+    <!--子模块管理-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>2.1.7.RELEASE</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot-maven-plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

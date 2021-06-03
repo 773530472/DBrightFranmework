@@ -1,0 +1,66 @@
+server:
+  port: 10005
+  http2:
+    enabled: true
+  undertow:
+    io-threads: 16
+    worker-threads: 256
+    buffer-size: 1024
+    direct-buffers: true
+
+
+spring:
+  datasource:
+    name: testDataPrediction
+    url: jdbc:mysql://94.191.122.68:3306/testDataPrediction
+    username: root
+    password: root
+#    tomcat:
+#      max-age: 40000 #连接池中连接的最长寿命
+    hikari:
+      connection-timeout: 5000000
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 500
+        min-idle: 0
+    lettuce:
+      shutdown-timeout: 0
+  data:
+    elasticsearch:
+      cluster-nodes: 127.0.0.1:9200
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.github.dright.entity  # 注意：对应实体类的路径
+
+rabbitmq:
+  host: 127.0.0.1
+  port: 15672
+  username: admin
+  password: admin
+  publisher-configrms: true
+  publisher-returns: true
+#  connection-timeout: 20000
+
+# 是否启用 Dataway 功能（必选：默认false）
+HASOR_DATAQL_DATAWAY: true
+
+# 是否开启 Dataway 后台管理界面（必选：默认false）
+HASOR_DATAQL_DATAWAY_ADMIN: true
+
+# dataway  API工作路径（可选，默认：/api/）
+HASOR_DATAQL_DATAWAY_API_URL: /api/
+
+# dataway-ui 的工作路径（可选，默认：/interface-ui/）
+HASOR_DATAQL_DATAWAY_UI_URL: /interface-ui/
+
+# SQL执行器方言设置（可选，建议设置）
+HASOR_DATAQL_FX_PAGE_DIALECT: mysql
+
+

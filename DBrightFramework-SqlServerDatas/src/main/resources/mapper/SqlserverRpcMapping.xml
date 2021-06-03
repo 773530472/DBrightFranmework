@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ay.sqlserver.demo.mapper.SqlserverRpcMapper">
+
+    <!--自控光温数据接入-黄岛港-->
+    <select id="getHDLightTem" resultType="map" parameterType="map">
+        SELECT
+            dbo.SysObjectSettings.MeasZoneID,dbo.SysObjectSettings.Name,
+            dbo.MeasZone.Name AS AS监测区域,dbo.SysObjectSettings.CV,
+            dbo.SysObjectSettings.RefreshTime
+        FROM
+            dbo.MeasZone
+        INNER JOIN
+            dbo.SysObjectSettings
+        ON
+            dbo.MeasZone.ID = dbo.SysObjectSettings.MeasZoneID
+        WHERE
+            (dbo.SysObjectSettings.CV IS NOT NULL)
+        AND
+            (dbo.SysObjectSettings.Name LIKE '%最高温度')
+    </select>
+
+    <!--自控光温数据接入-董家口港-摩科瑞-->
+    <select id="getDJKLightTem" resultType="map" parameterType="map">
+        SELECT
+            dbo.SysObjectSettings.MeasZoneID,dbo.SysObjectSettings.Name,
+            dbo.MeasZone.Name AS AS监测区域,dbo.SysObjectSettings.CV,
+            dbo.SysObjectSettings.RefreshTime
+        FROM
+            dbo.MeasZone
+        INNER JOIN
+            dbo.SysObjectSettings
+        ON
+            dbo.MeasZone.ID = dbo.SysObjectSettings.MeasZoneID
+        WHERE
+            (dbo.SysObjectSettings.CV IS NOT NULL)
+        AND
+            (dbo.SysObjectSettings.Name LIKE '%max:全局')
+        and
+            (dbo.MeasZone.Name = '董家口摩科瑞罐区光纤测温')
+    </select>
+
+    <!--自控光温数据接入-董家口港-实华-->
+    <select id="getDJKLightTem1" resultType="map" parameterType="map">
+        SELECT
+            dbo.SysObjectSettings.MeasZoneID,dbo.SysObjectSettings.Name,
+            dbo.MeasZone.Name AS AS监测区域,dbo.SysObjectSettings.CV,
+            dbo.SysObjectSettings.RefreshTime
+        FROM
+            dbo.MeasZone
+        INNER JOIN
+            dbo.SysObjectSettings
+        ON
+            dbo.MeasZone.ID = dbo.SysObjectSettings.MeasZoneID
+        WHERE
+            (dbo.SysObjectSettings.CV IS NOT NULL)
+        AND
+            (dbo.SysObjectSettings.Name LIKE '%max:全局')
+        and
+            (dbo.MeasZone.Name = '董家口储罐一期罐区光纤测温')
+    </select>
+
+</mapper>

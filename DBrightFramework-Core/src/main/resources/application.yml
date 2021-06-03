@@ -1,0 +1,27 @@
+server:
+  port: 1777
+  http2:
+    enabled: true
+  undertow:
+    io-threads: 16
+    worker-threads: 256
+    buffer-size: 1024
+    direct-buffers: true
+
+#指定当前环境
+spring:
+  profiles:
+    active: dev
+  datasource:
+    name: testDataPrediction
+    url: jdbc:mysql://94.191.122.68:3307/dbright_database?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+mybatis:
+  mapper-locations: classpath*:com/**/*Mapper.xml
+  type-aliases-package: /**.dto
+  configuration:
+    map-underscore-to-camel-case: true

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dbright.dataprediction.dao.dataDao">
+  <!--检维修趋势统计-->
+<!--  <select id="getData" parameterType="map" resultType="map">-->
+<!--    SELECT * FROM dataprection-->
+<!--  </select>-->
+
+<!--  <select id="insertData" parameterType="list" resultType="list">-->
+<!--    insert into dataprection (onlinetime,onlinenumber,onlinechange) values-->
+<!--      <foreach collection="list" item="listRelation" separator=",">-->
+<!--          (#{listRelation.onlinetime},-->
+<!--          #{listRelation.onlinenumber},-->
+<!--          #{listRelation.onlinechange}-->
+<!--          )-->
+<!--      </foreach>-->
+<!--  </select>-->
+</mapper>
